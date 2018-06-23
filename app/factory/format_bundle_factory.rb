@@ -1,7 +1,7 @@
 class FormatBundleFactory
 
   def create(code, count)
-    FormatBundle.new(code)
+    FormatBundle.new(code, count)
   end
 
 end

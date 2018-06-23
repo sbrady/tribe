@@ -8,7 +8,7 @@ describe LineHandler do
   before do
     allow(mock_submission_bundle_factory).to receive(:create).and_return(
         [
-            FormatBundle.new("IMG")
+            FormatBundle.new("IMG", 10)
         ]
     )
 

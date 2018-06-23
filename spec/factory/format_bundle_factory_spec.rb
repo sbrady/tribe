@@ -9,6 +9,10 @@ describe FormatBundleFactory do
     expect(result.code).to eql("CODEZ")
   end
 
+  it 'returns FormatBundle TotalCount' do
+    result = subject.create("IMG", 10)
+    expect(result.total_count).to eql(10)
+  end
 
 
 end
