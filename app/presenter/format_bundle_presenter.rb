@@ -6,15 +6,20 @@ class FormatBundlePresenter
 
 
   def present
+    @format_bundles.map {|format_bundle|
+      format_bundle.line_items
+          .map {|line_item| present_line_items(line_item)}
+          .unshift(present_heading(format_bundle))
+    }.flatten.join("\n")
+  end
 
-    first = @format_bundles.first
-    heading = "#{first.total_count} #{first.code} $#{first.total_cost.to_s('F')}"
+  private
+  def present_line_items(line_item)
+    " #{line_item.bundle_count} x #{line_item.bundle_size} $#{line_item.bundle_cost.to_s('F')}"
+  end
 
-    first.line_items
-        .map {|line_item| " #{line_item.bundle_count} x #{line_item.bundle_size} $#{line_item.bundle_cost.to_s('F')}"}
-        .unshift(heading)
-        .join("\n")
-
+  def present_heading(format_bundle)
+    "#{format_bundle.total_count} #{format_bundle.code} $#{format_bundle.total_cost.to_s('F')}"
   end
 
 end
