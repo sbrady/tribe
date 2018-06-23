@@ -8,7 +8,7 @@ describe LineHandler do
   before do
     allow(mock_submission_bundle_factory).to receive(:create).and_return(
         [
-            FormatBundle.new("IMG", 10)
+            FormatBundle.new("IMG", 10, [FormatBundleLineItem.new(10, 1, BigDecimal.new("800"))])
         ]
     )
 

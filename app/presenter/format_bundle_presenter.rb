@@ -7,7 +7,8 @@ class FormatBundlePresenter
 
   def present
     first = @formatBundles.first
-    "#{first.total_count} #{first.code} $800\n 1 x 10 $800"
+    f = first.line_items.first
+    "#{first.total_count} #{first.code} $800\n #{f.bundle_count} x #{f.bundle_size} $#{f.bundle_cost.to_s('F')}"
   end
 
 end

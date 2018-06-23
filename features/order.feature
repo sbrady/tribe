@@ -22,4 +22,4 @@ Feature: Order screen
   Scenario: An order for images
     When I enter the order "10 IMG"
     Then I see the total cost "$800" and count "10" for "IMG"
-    And I see the number of bundles is "1 x 10" at cost "$800"
+    And I see the number of bundles is "1 x 10" at cost "$800.0"
