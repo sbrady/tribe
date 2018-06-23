@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe FormatBundleFactory do
 
-  let(:format_bundle_factory) {FormatBundleFactory.new}
+  let(:format_bundle_factory) {FormatBundleFactory.new(BundleCalculator.new)}
 
   describe "#create" do
     subject {format_bundle_factory.create("IMG", 20)}
