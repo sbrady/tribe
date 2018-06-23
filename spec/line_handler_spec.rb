@@ -2,15 +2,16 @@ require 'spec_helper'
 
 describe LineHandler do
 
-  let(:mock_submission_bundle_factory) {spy('SubmissionBundleFactory')}
+  let(:mock_submission_bundle_factory) {spy('FormatBundleFactory')}
   subject {LineHandler.new(mock_submission_bundle_factory)}
 
   before do
     allow(mock_submission_bundle_factory).to receive(:create).and_return(
         [
-
+            FormatBundle.new("IMG")
         ]
     )
+
   end
 
   it 'uses the format type and count to get the bundles' do
@@ -20,7 +21,6 @@ describe LineHandler do
   end
 
   it "returns a presenter" do
-
     output = subject.handle(["10", "IMG"]).present
 
     expect(output).to include("10 IMG $800")

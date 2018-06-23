@@ -1,18 +1,22 @@
 class LineHandler
 
-  def initialize(submission_bundle_factory)
-    @submission_bundle_factory = submission_bundle_factory
+  def initialize(format_bundle_factory)
+    @format_bundle_factory = format_bundle_factory
   end
 
   def handle(line)
+    FormatBundlePresenter.new(create_format_bundles(line))
+  end
+
+
+  private
+  def create_format_bundles(line)
     line
         .each_slice(2)
         .to_a
         .map {|chunk|
-          @submission_bundle_factory.create(chunk[1], chunk[0].to_i)
-        }
-
-    return FormatBundlePresenter.new
+          @format_bundle_factory.create(chunk[1], chunk[0].to_i)
+        }.flatten
   end
 
 
