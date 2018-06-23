@@ -1,13 +1,20 @@
 class FormatBundleLineItem
 
-  attr_accessor :bundle_size, :bundle_count, :bundle_cost
+  attr_accessor :bundle_rule, :bundle_count
 
-  def initialize(bundle_size, bundle_count, bundle_cost)
-    @bundle_size = bundle_size
+  def initialize(bundle_rule, bundle_count)
+    @bundle_rule = bundle_rule
     @bundle_count = bundle_count
-    @bundle_cost = bundle_cost
   end
 
+
+  def bundle_size
+    @bundle_rule.size
+  end
+
+  def bundle_cost
+    @bundle_count * bundle_rule.cost
+  end
 
 
 end

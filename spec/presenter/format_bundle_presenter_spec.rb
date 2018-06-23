@@ -3,11 +3,11 @@ require 'spec_helper'
 describe FormatBundlePresenter do
 
   subject {FormatBundlePresenter.new(
-                                    [
-                                        FormatBundle.new('CODZ', 99, [
-                                            FormatBundleLineItem.new(10, 1, BigDecimal.new("800"))
-                                        ])
-                                    ]
+      [
+          FormatBundle.new('CODZ', 99, [
+              FormatBundleLineItem.new(BundleRule.new(10, BigDecimal.new("800")), 1)
+          ])
+      ]
   )}
 
   it 'has the bundle heading' do

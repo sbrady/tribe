@@ -14,9 +14,9 @@ class FormatBundleFactory
   private
   def make_line_items(code, total_items)
     rules = Format.find_by_code(code).bundle_rules
-    @bundle_calculator.calculate(total_items, rules).map {|rule, count|
-      FormatBundleLineItem.new(rule.size, count, rule.cost * count)
-    }.reject {|line_item| line_item.bundle_count == 0}
+    @bundle_calculator.calculate(total_items, rules)
+        .reject {|rule, count| count == 0}
+        .map {|rule, count| FormatBundleLineItem.new(rule, count)}
   end
 
 end
