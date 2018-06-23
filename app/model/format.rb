@@ -15,7 +15,7 @@ class Format
             BundleRule.new(5, BigDecimal.new("450")),
             BundleRule.new(10, BigDecimal.new("800")),
         ]),
-        Format.new("Flac", [
+        Format.new("FLAC", [
             BundleRule.new(3, BigDecimal.new("427.50")),
             BundleRule.new(6, BigDecimal.new("810")),
             BundleRule.new(9, BigDecimal.new("1147.50")),

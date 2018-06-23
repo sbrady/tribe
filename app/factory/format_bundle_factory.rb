@@ -6,9 +6,7 @@ class FormatBundleFactory
   end
 
   def create(code, total_items)
-    FormatBundle.new(code, total_items,
-                     make_line_items(code, total_items)
-    )
+    FormatBundle.new(code, make_line_items(code, total_items))
   end
 
   private

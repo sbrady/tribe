@@ -16,6 +16,10 @@ class FormatBundleLineItem
     @bundle_count * bundle_rule.cost
   end
 
+  def total_size
+    bundle_size * bundle_count
+  end
+
 
 end
 

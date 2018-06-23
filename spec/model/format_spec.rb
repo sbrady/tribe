@@ -17,9 +17,9 @@ describe Format do
     end
 
     it "returns the correct format for Flac" do
-      format = Format.find_by_code("Flac")
+      format = Format.find_by_code("FLAC")
 
-      expect(format.code).to eql("Flac")
+      expect(format.code).to eql("FLAC")
       expect(format.bundle_rules.size).to eql(3)
       expect(format.bundle_rules[0].size).to eql(3)
       expect(format.bundle_rules[0].cost).to eql(BigDecimal.new("427.50"))

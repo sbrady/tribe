@@ -1,14 +1,20 @@
 class FormatBundlePresenter
 
   def initialize(formatBundles)
-    @formatBundles = formatBundles
+    @format_bundles = formatBundles
   end
 
 
   def present
-    first = @formatBundles.first
-    f = first.line_items.first
-    "#{first.total_count} #{first.code} $800\n #{f.bundle_count} x #{f.bundle_size} $#{f.bundle_cost.to_s('F')}"
+
+    first = @format_bundles.first
+    heading = "#{first.total_count} #{first.code} $#{first.total_cost.to_s('F')}"
+
+    first.line_items
+        .map {|line_item| " #{line_item.bundle_count} x #{line_item.bundle_size} $#{line_item.bundle_cost.to_s('F')}"}
+        .unshift(heading)
+        .join("\n")
+
   end
 
 end
