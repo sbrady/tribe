@@ -19,9 +19,7 @@ Feature: Order screen
       | 5    | 900.00  |
       | 9    | 1530.00 |
 
-
   Scenario: An order for images
     When I enter the order "10 IMG"
-    And I enter Submit
-    Then I see the number of bundles and roses is "1 x 10" at cost "$800"
-    And I see the total cost "$800" and "10" for "IMG"
+    Then I see the total cost "$800" and count "10" for "IMG"
+    And I see the number of bundles is "1 x 10" at cost "$800"
