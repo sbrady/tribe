@@ -19,6 +19,11 @@ class Format
             BundleRule.new(3, BigDecimal.new("427.50")),
             BundleRule.new(6, BigDecimal.new("810")),
             BundleRule.new(9, BigDecimal.new("1147.50")),
+        ]),
+        Format.new("VID", [
+            BundleRule.new(3, BigDecimal.new("570.00")),
+            BundleRule.new(5, BigDecimal.new("900.00")),
+            BundleRule.new(9, BigDecimal.new("1530.00")),
         ])
     ]
 

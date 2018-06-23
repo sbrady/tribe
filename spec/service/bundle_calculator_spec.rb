@@ -43,6 +43,33 @@ describe BundleCalculator do
                               })
       end
 
+      it "fits into the all the bundles" do
+        bundle_rule_1 = BundleRule.new(3, nil)
+        bundle_rule_2 = BundleRule.new(5, nil)
+        bundle_rule_3 = BundleRule.new(9, nil)
+
+        result = subject.calculate(22, [bundle_rule_1, bundle_rule_2, bundle_rule_3])
+
+        expect(result).to eql({bundle_rule_1 => 1,
+                               bundle_rule_2 => 2,
+                               bundle_rule_3 => 1,
+                              })
+      end
+
+      it "fits into the first bundles" do
+        bundle_rule_1 = BundleRule.new(3, nil)
+        bundle_rule_2 = BundleRule.new(5, nil)
+        bundle_rule_3 = BundleRule.new(9, nil)
+
+
+        result = subject.calculate(13, [bundle_rule_1, bundle_rule_2, bundle_rule_3])
+
+        expect(result).to eql({bundle_rule_1 => 1,
+                               bundle_rule_2 => 2,
+                               bundle_rule_3 => 0,
+                              })
+      end
+
 
     end
   end
