@@ -21,3 +21,10 @@ Using models to represent the problem domain, and factories to add some layers.
 I have also applied design patterns, such ah Factory, and Model view presenter.
 I drove the design using BDD and TDD. Starting with feature specs, and moving down into unit tests.
 I have applied the dependency inversion principle by using dependency injection.
+
+--some things I'd like to fix--
+
+Although I managed to contain the mess, the `bundle_calculator` is messy.
+I also suspect there is a non recursive solution
+
+There is no error handling at all. In particular what will happen when requested amount is not evenly divisible
